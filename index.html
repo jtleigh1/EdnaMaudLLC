@@ -9,19 +9,19 @@
 <style>
   @font-face {
     font-family: 'Cormorant Garamond';
-    src: url('assets/fonts/CormorantGaramond.ttf') format('truetype');
+    src: url('CormorantGaramond.ttf') format('truetype');
     font-weight: 300 800;
     font-style: normal;
   }
   @font-face {
     font-family: 'Cormorant Garamond';
-    src: url('assets/fonts/CormorantGaramond-Italic.ttf') format('truetype');
+    src: url('CormorantGaramond-Italic.ttf') format('truetype');
     font-weight: 300 800;
     font-style: italic;
   }
   @font-face {
     font-family: 'DM Sans';
-    src: url('assets/fonts/DMSans.ttf') format('truetype');
+    src: url('DMSans.ttf') format('truetype');
     font-weight: 300 800;
     font-style: normal;
   }
@@ -113,7 +113,7 @@
     min-height:100vh;
     display:flex;
     align-items:flex-end;
-    background-image:url('assets/hero-bg.jpg');
+    background-image:url('hero-bg.jpg');
     background-size:cover;
     background-position:center 62%;
     overflow:hidden;
@@ -150,6 +150,21 @@
     text-shadow:0 4px 30px rgba(0,0,0,0.35);
     line-height:0.95;
     margin-bottom:6px;
+  }
+  .hero-eyebrow{
+    font-family:'DM Sans', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.2em;
+    font-size:12.5px;
+    font-weight:700;
+    color:#fff;
+    background:rgba(74,111,138,0.55);
+    border:1px solid rgba(255,255,255,0.4);
+    backdrop-filter:blur(3px);
+    padding:8px 20px;
+    border-radius:999px;
+    display:inline-block;
+    margin-bottom:20px;
   }
   .hero .tagline{
     font-family:'Cormorant Garamond', serif;
@@ -583,9 +598,10 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-dogs">
-      <img src="assets/edna.png" alt="Edna, illustrated with glasses" loading="eager">
-      <img src="assets/maud.png" alt="Maud, illustrated with glasses" loading="eager">
+      <img src="edna.png" alt="Edna, illustrated with glasses" loading="eager">
+      <img src="maud.png" alt="Maud, illustrated with glasses" loading="eager">
     </div>
+    <div class="hero-eyebrow">Midlife symptom relief &mdash; no euphemisms</div>
     <h1>Edna &amp; Maud's</h1>
     <div class="tagline">We say the quiet part. Out loud.</div>
     <p style="color:#fff; font-size:15px; letter-spacing:0.02em; margin:-14px 0 30px; opacity:0.9; text-shadow:0 1px 8px rgba(0,0,0,0.35);">
@@ -769,9 +785,14 @@
       </div>
     </div>
     <p class="footer-fine">
-      Edna &amp; Mauds, LLC. These statements have not been evaluated by the Food and Drug Administration.
-      Our products are not intended to diagnose, treat, cure, or prevent any disease. Coming soon — thank you
-      for being here early.
+      Edna &amp; Maud's, LLC. These statements have not been evaluated by the Food and Drug Administration.
+      Our products are not intended to diagnose, treat, cure, or prevent any disease. Nothing on this site,
+      including "Ask Maud," is medical, mental health, or legal advice — Edna and Maud are not doctors, nurses,
+      therapists, counselors, or attorneys, and none of this content comes from a licensed professional of any
+      kind. It's for general wellness and entertainment purposes only. Always talk to your own doctor, therapist,
+      or lawyer for guidance specific to you, especially before starting any new supplement — particularly if
+      you're pregnant, nursing, or taking other medication. Individual results vary. Coming soon — thank you for
+      being here early.
     </p>
   </div>
 </footer>
