@@ -116,26 +116,10 @@
     background:linear-gradient(165deg, var(--ink) 0%, var(--slate) 55%, var(--slate-soft) 100%);
     overflow:hidden;
   }
-  .hero-accent{
-    position:absolute;
-    left:0; right:0; bottom:0;
-    height:34%;
-    background-image:url('hero-bg.jpg');
-    background-size:cover;
-    background-position:center 62%;
-    border-top-left-radius:40% 60px;
-    border-top-right-radius:40% 60px;
-    opacity:0.9;
-  }
-  .hero-accent::after{
-    content:"";
-    position:absolute; inset:0;
-    background:linear-gradient(180deg, var(--ink) 0%, rgba(45,63,84,0) 40%);
-  }
   .hero-inner{
     position:relative; z-index:2;
     width:100%;
-    padding:100px 32px 180px;
+    padding:100px 32px 100px;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -180,9 +164,9 @@
     font-family:'Cormorant Garamond', serif;
     font-style:italic;
     font-size:clamp(19px, 2.6vw, 27px);
-    color:#fff;
-    background:rgba(250,245,235,0.16);
-    border:1px solid rgba(255,255,255,0.35);
+    color:var(--sand-light);
+    background:rgba(196,168,130,0.14);
+    border:1px solid rgba(196,168,130,0.55);
     backdrop-filter:blur(3px);
     padding:8px 26px;
     border-radius:999px;
@@ -212,8 +196,8 @@
   }
   .waitlist-form button{
     border:none;
-    background:var(--slate);
-    color:#fff;
+    background:var(--sand);
+    color:var(--ink);
     font-family:'DM Sans', sans-serif;
     font-weight:700;
     font-size:14px;
@@ -224,7 +208,7 @@
     white-space:nowrap;
     transition:background .2s ease, transform .15s ease;
   }
-  .waitlist-form button:hover{ background:var(--ink); transform:translateY(-1px);}
+  .waitlist-form button:hover{ background:#d9c19c; transform:translateY(-1px);}
   .waitlist-form button:focus-visible, .waitlist-form input:focus-visible{
     outline:3px solid var(--rose); outline-offset:2px;
   }
@@ -255,6 +239,28 @@
   }
   .scroll-cue .line{width:1px; height:34px; background:rgba(255,255,255,0.6); animation:pulse 2.2s ease-in-out infinite;}
   @keyframes pulse{ 0%,100%{opacity:0.3;} 50%{opacity:0.9;} }
+
+  /* ---------- MEET PHOTO ---------- */
+  .meet-photo{
+    background:var(--paper);
+    padding:70px 0 20px;
+    text-align:center;
+  }
+  .meet-photo-img{
+    width:100%;
+    max-width:900px;
+    border-radius:20px;
+    box-shadow:0 24px 60px rgba(45,63,84,0.18);
+    margin:0 auto;
+    display:block;
+  }
+  .meet-photo-caption{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color:var(--slate);
+    font-size:18px;
+    margin-top:22px;
+  }
 
   /* ---------- STORY ---------- */
   .story{
@@ -553,15 +559,21 @@
 
   /* ---------- FOOTER ---------- */
   footer{
-    background:
-      linear-gradient(var(--ink), var(--ink)),
-      url('IMG_4507.jpg');
-    background-blend-mode:multiply;
-    background-size:cover, cover;
-    background-position:center, center 30%;
+    position:relative;
+    background:var(--ink);
     color:rgba(255,255,255,0.65);
     padding:50px 0 34px;
+    overflow:hidden;
   }
+  footer::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:url('IMG_4507.jpg');
+    background-size:cover;
+    background-position:center 30%;
+    opacity:0.55;
+  }
+  footer .wrap{ position:relative; z-index:1; }
   .footer-top{
     display:flex; justify-content:space-between; align-items:center;
     flex-wrap:wrap; gap:20px;
@@ -614,15 +626,14 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-accent"></div>
   <div class="hero-inner">
     <div class="hero-dogs">
       <img src="edna.png" alt="Edna, illustrated with glasses" loading="eager">
       <img src="maud.png" alt="Maud, illustrated with glasses" loading="eager">
     </div>
     <h1>Edna &amp; Maud's</h1>
-    <div class="tagline">We say the quiet part. Out loud.</div>
-    <p style="color:#fff; font-size:15px; letter-spacing:0.02em; margin:-14px 0 30px; opacity:0.9; text-shadow:0 1px 8px rgba(0,0,0,0.35);">
+    <div class="tagline">We say the quiet part.<br>Out loud.</div>
+    <p style="color:var(--sand-light); font-size:15px; letter-spacing:0.02em; margin:-14px 0 30px; opacity:0.95;">
       Your one-stop shop for gummies, tools &amp; everyday relief — for the midlife stuff nobody talks about.
     </p>
 
@@ -637,8 +648,19 @@
   <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
 </section>
 
+<!-- MEET EDNA & MAUD -->
+<section class="meet-photo">
+  <div class="wrap">
+    <img src="IMG_4592.jpeg" alt="Edna and Maud sitting in beach chairs, dishing under a canopy at sunset" class="meet-photo-img">
+    <p class="meet-photo-caption">Edna &amp; Maud, catching up &mdash; same as always.</p>
+  </div>
+</section>
+
 <!-- STORY -->
 <section class="story">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center; margin-bottom:16px;">Our Story</div>
+  </div>
   <div class="wrap story-grid">
     <div class="story-quote">
       One says it straight. <em>One says it proper.</em> Neither one holds back.
@@ -646,7 +668,7 @@
     <div class="story-body">
       <p>Edna was a nurse — direct, unshockable, and just as happy to talk about your body as your blood pressure if the room was safe enough for it. Maud was a doctor's wife of the old-school kind — polished in public, perfectly proper... right up until the door closed. Then the tongue came out.</p>
       <p>Both of them spent their whole lives around medicine that had a habit of telling women "it's nothing" when it very much was not.</p>
-      <p>Their granddaughter started this because it never all lived in one spot. The gummies were over here, the good scalp brush was buried in some Reddit thread, and nobody was talking about the GLP-1 side effects out loud, let alone pointing you to what actually helps.</p>
+      <p>Their granddaughter started this company because it never all lived in one spot. The gummies were over here, the good scalp brush was buried in some Reddit thread, and nobody was talking about the GLP-1 side effects out loud, let alone pointing you to what actually helps.</p>
       <div class="story-signoff">Edna and Maud never whispered. So neither do we.</div>
     </div>
   </div>
@@ -672,7 +694,7 @@
         </div>
       </div>
       <div class="concern-card">
-        <div class="aisle-sign">Aisle One</div>
+        <div class="aisle-sign">Aisle Two</div>
         <div class="aisle-panel">
           <h3>Mood &amp; Energy</h3>
           <p>For the days you'd like to feel like yourself again.</p>
@@ -680,7 +702,7 @@
         </div>
       </div>
       <div class="concern-card">
-        <div class="aisle-sign">Aisle Two</div>
+        <div class="aisle-sign">Aisle Three</div>
         <div class="aisle-panel">
           <h3>GLP-1 Support</h3>
           <p>For the side of the journey nobody mentions at the pharmacy counter.</p>
@@ -688,7 +710,7 @@
         </div>
       </div>
       <div class="concern-card">
-        <div class="aisle-sign">Aisle Two</div>
+        <div class="aisle-sign">Aisle Four</div>
         <div class="aisle-panel">
           <h3>Gut Health</h3>
           <p>For when things move too fast, too slow, or not at all.</p>
@@ -696,7 +718,7 @@
         </div>
       </div>
       <div class="concern-card">
-        <div class="aisle-sign">Aisle Two</div>
+        <div class="aisle-sign">Aisle Five</div>
         <div class="aisle-panel">
           <h3>Hair Thinning</h3>
           <p>For the hairline that's been quietly negotiating without you.</p>
@@ -704,7 +726,7 @@
         </div>
       </div>
       <div class="concern-card">
-        <div class="aisle-sign">Aisle Three</div>
+        <div class="aisle-sign">Aisle Six</div>
         <div class="aisle-panel">
           <h3>Libido &amp; Intimacy</h3>
           <p>For the topic that gets a nervous laugh everywhere else. Not here.</p>
