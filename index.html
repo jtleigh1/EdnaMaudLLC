@@ -106,6 +106,19 @@
     transition:background .2s ease, color .2s ease;
   }
   .nav-cta:hover{ background:#fff; color:var(--ink); text-shadow:none;}
+  .nav-link{
+    font-family:'DM Sans', sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.03em;
+    color:#fff;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+    text-decoration:none;
+    opacity:0.88;
+    transition:opacity .2s ease;
+  }
+  .nav-link:hover{ opacity:1; text-decoration:underline; }
+  .nav-right{ display:flex; align-items:center; gap:22px; }
 
   /* ---------- HERO ---------- */
   .hero{
@@ -344,6 +357,8 @@
   .aisle-card:nth-child(3) .aisle-sign, .concern-card:nth-child(3) .aisle-sign,
   .concern-card:nth-child(6) .aisle-sign{ transform:translateX(-50%) rotate(-1deg); }
   .concern-card:nth-child(4) .aisle-sign{ transform:translateX(-50%) rotate(2deg); }
+  .concern-card:nth-child(7) .aisle-sign{ transform:translateX(-50%) rotate(-1.5deg); }
+  .concern-card:nth-child(8) .aisle-sign{ transform:translateX(-50%) rotate(1deg); }
 
   .aisle-panel{
     background:rgba(255,255,255,0.04);
@@ -621,7 +636,10 @@
 
 <nav class="nav">
   <div class="nav-mark">Edna &amp; Maud's</div>
-  <a href="#waitlist" class="nav-cta">Join the list</a>
+  <div class="nav-right">
+    <a href="/app" class="nav-link">Try the app</a>
+    <a href="#waitlist" class="nav-cta">Join the list</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -666,9 +684,9 @@
       One says it straight. <em>One says it proper.</em> Neither one holds back.
     </div>
     <div class="story-body">
-      <p>Edna was a nurse — direct, unshockable, and just as happy to talk about your body as your blood pressure if the room was safe enough for it. Maud was a doctor's wife of the old-school kind — polished in public, perfectly proper... right up until the door closed. Then the tongue came out.</p>
-      <p>Both of them spent their whole lives around medicine that had a habit of telling women "it's nothing" when it very much was not.</p>
-      <p>Their granddaughter started this company because it never all lived in one spot. The gummies were over here, the good scalp brush was buried in some Reddit thread, and nobody was talking about the GLP-1 side effects out loud, let alone pointing you to what actually helps.</p>
+      <p>Edna was a nurse — the kind who'd give you your cholesterol numbers and your outfit critique in the exact same flat, loving tone. Maud was a doctor's wife of the old-school kind: pearls in public, absolutely feral in the kitchen. Ask either of them about "female troubles" and prepare to learn more than you asked for, possibly against your will.</p>
+      <p>Both spent decades watching women get patted on the head and told "it's nothing." It was never nothing. It just wasn't anyone's job to say so — until it was theirs.</p>
+      <p>Their granddaughter got tired of the scavenger hunt: the gummies over here, the good scalp brush buried in a five-year-old Reddit thread, and dead silence on what a GLP-1 actually does to your hair, your gut, and your entire personality. So she built the one-stop version — same bluntness, better manners than the internet.</p>
       <div class="story-signoff">Edna and Maud never whispered. So neither do we.</div>
     </div>
   </div>
@@ -685,54 +703,70 @@
       </p>
     </div>
     <div class="concern-grid">
-      <div class="concern-card" id="hot-flashes-sleep">
+      <a href="hot-flashes-sleep.html" class="concern-card" id="hot-flashes-sleep" style="display:block; text-decoration:none; color:inherit;">
         <div class="aisle-sign">Aisle One</div>
         <div class="aisle-panel">
           <h3>Hot Flashes &amp; Sleep</h3>
           <p>For the nights the thermostat becomes a personal enemy.</p>
-          <span class="aisle-tag">Coming soon</span>
+          <span class="aisle-tag">Explore &rarr;</span>
         </div>
-      </div>
-      <div class="concern-card" id="mood-energy">
+      </a>
+      <a href="mood-energy.html" class="concern-card" id="mood-energy" style="display:block; text-decoration:none; color:inherit;">
         <div class="aisle-sign">Aisle Two</div>
         <div class="aisle-panel">
           <h3>Mood &amp; Energy</h3>
           <p>For the days you'd like to feel like yourself again.</p>
-          <span class="aisle-tag">Coming soon</span>
+          <span class="aisle-tag">Explore &rarr;</span>
         </div>
-      </div>
-      <div class="concern-card" id="glp1-support">
+      </a>
+      <a href="glp1-support.html" class="concern-card" id="glp1-support" style="display:block; text-decoration:none; color:inherit;">
         <div class="aisle-sign">Aisle Three</div>
         <div class="aisle-panel">
           <h3>GLP-1 Support</h3>
           <p>For the side of the journey nobody mentions at the pharmacy counter.</p>
-          <span class="aisle-tag">Coming soon</span>
+          <span class="aisle-tag">Explore &rarr;</span>
         </div>
-      </div>
-      <div class="concern-card" id="gut-health">
+      </a>
+      <a href="gut-health.html" class="concern-card" id="gut-health" style="display:block; text-decoration:none; color:inherit;">
         <div class="aisle-sign">Aisle Four</div>
         <div class="aisle-panel">
           <h3>Gut Health</h3>
           <p>For when things move too fast, too slow, or not at all.</p>
-          <span class="aisle-tag">Coming soon</span>
+          <span class="aisle-tag">Explore &rarr;</span>
         </div>
-      </div>
-      <div class="concern-card" id="hair-thinning">
+      </a>
+      <a href="hair-thinning.html" class="concern-card" id="hair-thinning" style="display:block; text-decoration:none; color:inherit;">
         <div class="aisle-sign">Aisle Five</div>
         <div class="aisle-panel">
           <h3>Hair Thinning</h3>
           <p>For the hairline that's been quietly negotiating without you.</p>
-          <span class="aisle-tag">Coming soon</span>
+          <span class="aisle-tag">Explore &rarr;</span>
         </div>
-      </div>
-      <div class="concern-card" id="libido-intimacy">
+      </a>
+      <a href="libido-intimacy.html" class="concern-card" id="libido-intimacy" style="display:block; text-decoration:none; color:inherit;">
         <div class="aisle-sign">Aisle Six</div>
         <div class="aisle-panel">
           <h3>Libido &amp; Intimacy</h3>
           <p>For the topic that gets a nervous laugh everywhere else. Not here.</p>
-          <span class="aisle-tag">Coming soon</span>
+          <span class="aisle-tag">Explore &rarr;</span>
         </div>
-      </div>
+      </a>
+      <a href="muscular-joint-pain.html" class="concern-card" id="muscular-joint-pain" style="display:block; text-decoration:none; color:inherit;">
+        <div class="aisle-sign">Aisle Seven</div>
+        <div class="aisle-panel">
+          <h3>Muscular &amp; Joint Pain</h3>
+          <p>For the ache that wasn't there last year, and the good cream that argues back.</p>
+          <span class="aisle-tag">Explore &rarr;</span>
+        </div>
+      </a>
+      <a href="brain-fog.html" class="concern-card" id="brain-fog" style="display:block; text-decoration:none; color:inherit;">
+        <div class="aisle-sign">Aisle Eight</div>
+        <div class="aisle-panel">
+          <h3>Brain Fog</h3>
+          <p>For the word that was right there a second ago. Lion's mane included, no judgment.</p>
+          <span class="aisle-tag">Explore &rarr;</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
