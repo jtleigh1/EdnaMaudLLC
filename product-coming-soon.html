@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon — Edna &amp; Maud's Products</title>
+<meta name="description" content="Edna &amp; Maud's own recipe is in the works. Coming soon.">
+
+<style>
+  @font-face{
+    font-family: 'Cormorant Garamond';
+    src: url('CormorantGaramond.ttf') format('truetype');
+    font-weight: 500 700;
+  }
+  @font-face{
+    font-family: 'Cormorant Garamond';
+    src: url('CormorantGaramond-Italic.ttf') format('truetype');
+    font-style: italic;
+  }
+  @font-face{
+    font-family: 'DM Sans';
+    src: url('DMSans.ttf') format('truetype');
+  }
+
+  :root{
+    --ink: #2D3F54;
+    --slate: #4A6F8A;
+    --slate-soft: #7C97AC;
+    --sand: #C4A882;
+    --sand-light: #E8DCC6;
+    --paper: #FAF6EF;
+    --paper-warm: #F3ECDF;
+    --charcoal: #322E29;
+    --edna: #B5674F;
+    --max: 1180px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{
+    background:var(--paper);
+    font-family:'DM Sans', sans-serif;
+    color:var(--ink);
+  }
+  a{ color:inherit; }
+
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 32px;
+    background:var(--ink);
+  }
+  .nav-mark{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:700;
+    font-size:22px;
+    color:#fff;
+    text-decoration:none;
+  }
+  .nav-back{
+    font-family:'DM Sans', sans-serif;
+    font-size:13px;
+    font-weight:700;
+    color:#fff;
+    text-decoration:none;
+    opacity:0.85;
+  }
+  .nav-back:hover{ opacity:1; text-decoration:underline; }
+
+  .construction{
+    max-width:640px;
+    margin:0 auto;
+    padding:90px 32px 100px;
+    text-align:center;
+  }
+  .lab-frame{
+    max-width:480px;
+    margin:0 auto 36px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 18px 44px rgba(45,63,84,0.2);
+  }
+  .lab-frame img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .eyebrow{
+    font-family:'DM Sans', sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--edna);
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:700;
+    font-size:42px;
+    color:var(--ink);
+    margin-bottom:20px;
+  }
+  .edna-quote{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:22px;
+    line-height:1.5;
+    color:var(--charcoal);
+    max-width:520px;
+    margin:0 auto 36px;
+  }
+  .sub{
+    font-family:'DM Sans', sans-serif;
+    font-size:15px;
+    line-height:1.7;
+    color:#5A6B75;
+    max-width:480px;
+    margin:0 auto 40px;
+  }
+
+  form{
+    display:flex;
+    gap:10px;
+    max-width:420px;
+    margin:0 auto 14px;
+  }
+  input[type="email"]{
+    flex:1;
+    padding:14px 18px;
+    border-radius:999px;
+    border:1px solid var(--sand-light);
+    background:#fff;
+    font-family:'DM Sans', sans-serif;
+    font-size:14px;
+    color:var(--ink);
+    outline:none;
+  }
+  button{
+    padding:14px 26px;
+    border-radius:999px;
+    border:none;
+    background:var(--slate);
+    color:#fff;
+    font-family:'DM Sans', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    cursor:pointer;
+  }
+  button:hover{ opacity:0.92; }
+  .form-note{
+    font-family:'DM Sans', sans-serif;
+    font-size:12px;
+    color:#8A9BA6;
+  }
+
+  @media (max-width: 480px){
+    form{ flex-direction:column; }
+  }
+
+  footer{
+    text-align:center;
+    padding:36px 32px;
+    font-family:'DM Sans', sans-serif;
+    font-size:12px;
+    color:#8A9BA6;
+  }
+  footer a{ color:var(--slate); text-decoration:none; font-weight:700; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-mark">Edna &amp; Maud's</a>
+  <a href="index.html#shop-by-concern" class="nav-back">&larr; Back to the aisles</a>
+</nav>
+
+<div class="construction">
+  <div class="lab-frame">
+    <img src="edna-gummy-lab.jpg" alt="Edna in her lab coat and glasses, mixing up a batch of gummies in the Edna &amp; Maud's wellness lab">
+  </div>
+
+  <div class="eyebrow">Edna &amp; Maud's Products &mdash; Coming Soon</div>
+  <h1>Under construction.</h1>
+
+  <p class="edna-quote">"Don't ask what's in the lab. Just know it involves a grudge, a blender, and possibly gin. My own recipe &mdash; coming soon."</p>
+
+  <p class="sub">Everything you see on the aisles right now is Edna's honest opinion on what's already out there &mdash; we don't stock it, we don't sell it, we just have thoughts. That changes once our own recipe is ready. Join the list and you'll hear it from us first.</p>
+
+  <form action="#" method="POST">
+    <label for="email" style="position:absolute; left:-9999px;">Email address</label>
+    <input type="email" id="email" name="email" placeholder="you@email.com" required>
+    <button type="submit">Notify me</button>
+  </form>
+  <p class="form-note">No spam. Just the one email when it's real.</p>
+</div>
+
+<footer>
+  Edna &amp; Maud never whispered. So neither do we. &middot; <a href="index.html">Back to Edna &amp; Maud's</a>
+</footer>
+
+</body>
+</html>
