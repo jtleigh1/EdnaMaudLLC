@@ -356,13 +356,25 @@
     font-size:clamp(34px, 5vw, 54px);
     margin-top:10px;
   }
-  .aisle-row, .concern-grid{
+  .aisle-row{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
     gap:36px;
   }
-  .concern-grid{
-    row-gap:56px;
+  .concern-row{
+    display:grid;
+    gap:36px;
+    margin-bottom:56px;
+  }
+  .concern-row:last-child{ margin-bottom:0; }
+  .concern-row-3{
+    grid-template-columns:repeat(3, 1fr);
+  }
+  .concern-row-2{
+    grid-template-columns:repeat(2, 1fr);
+    max-width:calc(66.667% - 12px);
+    margin-left:auto;
+    margin-right:auto;
   }
   .aisle-card, .concern-card{
     position:relative;
@@ -783,7 +795,7 @@
   @media (max-width: 880px){
     .story-grid, .delivery-grid, .editorial-grid{ grid-template-columns:1fr; gap:40px;}
     .aisle-row{ grid-template-columns:1fr; gap:56px;}
-    .concern-grid{ grid-template-columns:1fr 1fr; gap:16px 24px; }
+    .concern-row-3, .concern-row-2{ grid-template-columns:1fr 1fr; gap:16px 24px; max-width:100%; }
     .hero-dogs img{height:110px;}
     .waitlist-form{flex-direction:column; border-radius:22px; padding:14px;}
     .waitlist-form input[type="email"]{padding:10px 8px;}
@@ -791,7 +803,7 @@
     .ed-card{padding:34px 26px;}
   }
   @media (max-width: 560px){
-    .concern-grid{ grid-template-columns:1fr; gap:44px; }
+    .concern-row-3, .concern-row-2{ grid-template-columns:1fr; gap:44px; max-width:100%; }
   }
 </style>
 </head>
@@ -817,7 +829,6 @@
       <a href="longevity-mobility.html">Longevity &amp; Mobility</a>
     </div>
   </div>
-  <a href="#discreet-delivery"><svg class="paw" viewBox="0 0 24 24" width="14" height="14" fill="#fff"><path d="M8.5 9.5c1.1 0 2-1.1 2-2.5S9.6 4.5 8.5 4.5 6.5 5.6 6.5 7s.9 2.5 2 2.5zm7 0c1.1 0 2-1.1 2-2.5S16.6 4.5 15.5 4.5 13.5 5.6 13.5 7s.9 2.5 2 2.5zM4.5 14c1.1 0 2-1.1 2-2.5S5.6 9 4.5 9 2.5 10.1 2.5 11.5 3.4 14 4.5 14zm15 0c1.1 0 2-1.1 2-2.5S20.6 9 19.5 9 17.5 10.1 17.5 11.5 18.4 14 19.5 14zM12 12.5c-2.8 0-6 2.3-6 5.2 0 1.5 1.2 2.3 2.7 2.3 1 0 1.9-.5 3.3-.5s2.3.5 3.3.5c1.5 0 2.7-.8 2.7-2.3 0-2.9-3.2-5.2-6-5.2z"/></svg>Discreet Delivery</a>
   <a href="#our-story"><svg class="paw" viewBox="0 0 24 24" width="14" height="14" fill="#fff"><path d="M8.5 9.5c1.1 0 2-1.1 2-2.5S9.6 4.5 8.5 4.5 6.5 5.6 6.5 7s.9 2.5 2 2.5zm7 0c1.1 0 2-1.1 2-2.5S16.6 4.5 15.5 4.5 13.5 5.6 13.5 7s.9 2.5 2 2.5zM4.5 14c1.1 0 2-1.1 2-2.5S5.6 9 4.5 9 2.5 10.1 2.5 11.5 3.4 14 4.5 14zm15 0c1.1 0 2-1.1 2-2.5S20.6 9 19.5 9 17.5 10.1 17.5 11.5 18.4 14 19.5 14zM12 12.5c-2.8 0-6 2.3-6 5.2 0 1.5 1.2 2.3 2.7 2.3 1 0 1.9-.5 3.3-.5s2.3.5 3.3.5c1.5 0 2.7-.8 2.7-2.3 0-2.9-3.2-5.2-6-5.2z"/></svg>Our Story</a>
 </div>
 
@@ -861,8 +872,8 @@
         Gummies, tools, and everyday relief, all in one place — so you're not piecing together five different brands for five different things nobody warned you about.
       </p>
     </div>
-    <div class="concern-grid">
-      <a href="hot-flashes-sleep.html" class="concern-card" id="hot-flashes-sleep" style="display:block; text-decoration:none; color:inherit;">
+    <div class="concern-row concern-row-3">
+      <a href="hot-flashes-sleep.html" class="concern-card" id="hot-flashes-sleep" style="display:block; text-decoration:none; color:inherit; background-image:linear-gradient(rgba(45,63,84,0.75), rgba(45,63,84,0.75)), url('hot-flashes-sleep-bg.webp'); background-size:cover; background-position:center;">
         <div class="aisle-marker">
           <span class="aisle-num">Aisle One</span>
           <span class="aisle-title">Hot Flashes &amp; Sleep</span>
@@ -872,7 +883,7 @@
           <span class="aisle-tag">Explore &rarr;</span>
         </div>
       </a>
-      <a href="mood-energy.html" class="concern-card" id="mood-energy" style="display:block; text-decoration:none; color:inherit;">
+      <a href="mood-energy.html" class="concern-card" id="mood-energy" style="display:block; text-decoration:none; color:inherit; background-image:linear-gradient(rgba(45,63,84,0.75), rgba(45,63,84,0.75)), url('mood-energy-bg.webp'); background-size:cover; background-position:center;">
         <div class="aisle-marker">
           <span class="aisle-num">Aisle Two</span>
           <span class="aisle-title">Mood &amp; Energy</span>
@@ -882,7 +893,7 @@
           <span class="aisle-tag">Explore &rarr;</span>
         </div>
       </a>
-      <a href="glp1-support.html" class="concern-card" id="glp1-support" style="display:block; text-decoration:none; color:inherit;">
+      <a href="glp1-support.html" class="concern-card" id="glp1-support" style="display:block; text-decoration:none; color:inherit; background-image:linear-gradient(rgba(45,63,84,0.75), rgba(45,63,84,0.75)), url('glp1-support-bg.webp'); background-size:cover; background-position:center;">
         <div class="aisle-marker">
           <span class="aisle-num">Aisle Three</span>
           <span class="aisle-title">GLP-1 Support</span>
@@ -892,7 +903,9 @@
           <span class="aisle-tag">Explore &rarr;</span>
         </div>
       </a>
-      <a href="gut-health.html" class="concern-card" id="gut-health" style="display:block; text-decoration:none; color:inherit;">
+    </div>
+    <div class="concern-row concern-row-2">
+      <a href="gut-health.html" class="concern-card" id="gut-health" style="display:block; text-decoration:none; color:inherit; background-image:linear-gradient(rgba(45,63,84,0.75), rgba(45,63,84,0.75)), url('gut-health-bg.webp'); background-size:cover; background-position:center;">
         <div class="aisle-marker">
           <span class="aisle-num">Aisle Four</span>
           <span class="aisle-title">Gut Health</span>
@@ -902,7 +915,7 @@
           <span class="aisle-tag">Explore &rarr;</span>
         </div>
       </a>
-      <a href="hair-thinning.html" class="concern-card" id="hair-thinning" style="display:block; text-decoration:none; color:inherit;">
+      <a href="hair-thinning.html" class="concern-card" id="hair-thinning" style="display:block; text-decoration:none; color:inherit; background-image:linear-gradient(rgba(45,63,84,0.75), rgba(45,63,84,0.75)), url('hair-thinning-bg.webp'); background-size:cover; background-position:center;">
         <div class="aisle-marker">
           <span class="aisle-num">Aisle Five</span>
           <span class="aisle-title">Hair Thinning</span>
@@ -912,7 +925,9 @@
           <span class="aisle-tag">Explore &rarr;</span>
         </div>
       </a>
-      <a href="libido-intimacy.html" class="concern-card" id="libido-intimacy" style="display:block; text-decoration:none; color:inherit;">
+    </div>
+    <div class="concern-row concern-row-3">
+      <a href="libido-intimacy.html" class="concern-card" id="libido-intimacy" style="display:block; text-decoration:none; color:inherit; background-image:linear-gradient(rgba(45,63,84,0.75), rgba(45,63,84,0.75)), url('libido-intimacy-bg.jpg'); background-size:cover; background-position:center;">
         <div class="aisle-marker">
           <span class="aisle-num">Aisle Six</span>
           <span class="aisle-title">Libido &amp; Intimacy</span>
@@ -922,7 +937,7 @@
           <span class="aisle-tag">Explore &rarr;</span>
         </div>
       </a>
-      <a href="muscular-joint-pain.html" class="concern-card" id="muscular-joint-pain" style="display:block; text-decoration:none; color:inherit;">
+      <a href="muscular-joint-pain.html" class="concern-card" id="muscular-joint-pain" style="display:block; text-decoration:none; color:inherit; background-image:linear-gradient(rgba(45,63,84,0.75), rgba(45,63,84,0.75)), url('muscular-joint-pain-bg.webp'); background-size:cover; background-position:center;">
         <div class="aisle-marker">
           <span class="aisle-num">Aisle Seven</span>
           <span class="aisle-title">Muscular &amp; Joint Pain</span>
@@ -932,7 +947,7 @@
           <span class="aisle-tag">Explore &rarr;</span>
         </div>
       </a>
-      <a href="brain-fog.html" class="concern-card" id="brain-fog" style="display:block; text-decoration:none; color:inherit;">
+      <a href="brain-fog.html" class="concern-card" id="brain-fog" style="display:block; text-decoration:none; color:inherit; background-image:linear-gradient(rgba(45,63,84,0.75), rgba(45,63,84,0.75)), url('brain-fog-bg.jpg'); background-size:cover; background-position:center;">
         <div class="aisle-marker">
           <span class="aisle-num">Aisle Eight</span>
           <span class="aisle-title">Brain Fog</span>
@@ -942,19 +957,11 @@
           <span class="aisle-tag">Explore &rarr;</span>
         </div>
       </a>
-      <a href="product-coming-soon.html" class="concern-card" id="own-line" style="display:block; text-decoration:none; color:inherit; background-image:linear-gradient(rgba(45,63,84,0.75), rgba(45,63,84,0.75)), url('edna-gummy-lab.jpg'); background-size:cover; background-position:center;">
+    </div>
+    <div class="concern-row concern-row-2">
+      <a href="longevity-mobility.html" class="concern-card" id="longevity-mobility" style="display:block; text-decoration:none; color:inherit; background-image:linear-gradient(rgba(45,63,84,0.75), rgba(45,63,84,0.75)), url('longevity-mobility-bg.webp'); background-size:cover; background-position:center;">
         <div class="aisle-marker">
           <span class="aisle-num">Aisle Nine</span>
-          <span class="aisle-title">Edna &amp; Maud's Own Line</span>
-        </div>
-        <div class="aisle-panel">
-          <p>Our own recipe, still cooking. Edna's in the lab and she's not sharing details yet.</p>
-          <span class="aisle-tag">Coming Soon</span>
-        </div>
-      </a>
-      <a href="longevity-mobility.html" class="concern-card" id="longevity-mobility" style="display:block; text-decoration:none; color:inherit;">
-        <div class="aisle-marker">
-          <span class="aisle-num">Aisle Ten</span>
           <span class="aisle-title">Longevity &amp; Mobility</span>
         </div>
         <div class="aisle-panel">
@@ -962,7 +969,18 @@
           <span class="aisle-tag">Explore &rarr;</span>
         </div>
       </a>
+      <a href="product-coming-soon.html" class="concern-card" id="own-line" style="display:block; text-decoration:none; color:inherit; background-image:linear-gradient(rgba(45,63,84,0.75), rgba(45,63,84,0.75)), url('edna-gummy-lab.jpg'); background-size:cover; background-position:center;">
+        <div class="aisle-marker">
+          <span class="aisle-num">Aisle Ten</span>
+          <span class="aisle-title">Edna &amp; Maud's Own Line</span>
+        </div>
+        <div class="aisle-panel">
+          <p>Our own recipe, still cooking. Edna's in the lab and she's not sharing details yet.</p>
+          <span class="aisle-tag">Coming Soon</span>
+        </div>
+      </a>
     </div>
+
     <p style="text-align:center; margin-top:48px; font-family:'DM Sans', sans-serif; font-size:14px; color:rgba(255,255,255,0.6);">
       Didn't find your aisle? <a href="mailto:em@ednaandmaud.com?subject=Aisle%20idea" style="color:#F3ECE0; font-weight:700; text-decoration:underline;">Tell us what's missing &rarr;</a>
     </p>
@@ -974,7 +992,7 @@
   <div style="max-width: 640px; margin: 0 auto;">
     <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 24px;">
       <img src="edna.png" alt="Edna" style="width: 72px; height: 72px; border-radius: 50%; border: 3px solid #F3ECE0; object-fit: cover;">
-      <img src="maud.png" alt="Maud" style="width: 72px; height: 72px; border-radius: 50%; border: 3px solid #F3ECE0; object-fit: cover;">
+      <img src="maud.png" alt="Maud" style="width: 72px; height: 72px; border-radius: 50%; border: 3px solid #F3ECE0; object-fit: cover; object-position: 30% 30%;">
     </div>
     <div style="font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #D9C4A0; margin-bottom: 14px;">
       Not the shop &mdash; the daily companion
@@ -1017,19 +1035,19 @@
       <span class="eyebrow" style="color:var(--sand);">A list</span>
       <h3>Edna's Best Of</h3>
       <p class="ed-sub">Things worth your money that aren't ours.</p>
-      <ul class="best-list">
-        <li>
-          <span class="best-name">The detangling brush I actually use for thinning hair</span>
-          <a href="hair-thinning.html" class="best-link">See it &rarr;</a>
-        </li>
-      </ul>
-      <div class="ed-note">Full picks, by category, live on each aisle. Edna just has opinions everywhere.</div>
+      <a href="hair-thinning.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.16); border-radius:14px; padding:28px 26px; margin-bottom:24px;">
+        <span style="display:block; font-family:'DM Sans', sans-serif; font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--sand); margin-bottom:12px;">Today's pick &mdash; Hair Thinning</span>
+        <span style="display:block; font-family:'Cormorant Garamond', serif; font-style:italic; font-size:19px; color:#fff; line-height:1.4; margin-bottom:16px;">"The detangling brush I actually use for thinning hair."</span>
+        <span style="display:block; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:700; color:var(--sand); text-align:right;">See it &rarr;</span>
+      </a>
+      <p class="ed-note" style="margin-top:12px;">Full picks, by category, live on each aisle. Edna just has opinions everywhere.</p>
     </div>
 
   </div>
 </section>
 
-<!-- DELIVERY -->
+<!-- DELIVERY — paused until we're actually shipping product. Restore this whole block when that's live. -->
+<!--
 <section class="delivery" id="discreet-delivery">
   <div class="wrap delivery-grid">
     <div>
@@ -1050,6 +1068,7 @@
     </div>
   </div>
 </section>
+-->
 
 <!-- STORY -->
 <section class="story" id="our-story">
