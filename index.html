@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edna &amp; Maud's — For the stuff nobody talks about</title>
+<meta name="description" content="Edna & Maud's is a wellness brand for the stuff nobody talks about. Coming soon.">
+
+<style>
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('CormorantGaramond.ttf') format('truetype');
+    font-weight: 300 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('CormorantGaramond-Italic.ttf') format('truetype');
+    font-weight: 300 800;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('DMSans.ttf') format('truetype');
+    font-weight: 300 800;
+    font-style: normal;
+  }
+
+  :root{
+    --ink: #2D3F54;
+    --slate: #4A6F8A;
+    --slate-soft: #7C97AC;
+    --sand: #C4A882;
+    --sand-light: #E8DCC6;
+    --rose: #D98A80;
+    --paper: #FAF6EF;
+    --paper-warm: #F3ECDF;
+    --charcoal: #322E29;
+    --max: 1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'DM Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%; display:block;}
+
+  a{color:inherit;}
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+
+  h1,h2,h3{
+    font-family:'Cormorant Garamond', serif;
+    color:var(--ink);
+    margin:0;
+    font-weight:700;
+    letter-spacing:0.01em;
+  }
+
+  .eyebrow{
+    font-family:'DM Sans', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.22em;
+    font-size:12px;
+    font-weight:700;
+    color:var(--slate);
+  }
+
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 32px;
+    background:linear-gradient(180deg, rgba(15,20,30,0.38) 0%, rgba(15,20,30,0.0) 100%);
+  }
+  .nav-mark{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:700;
+    font-size:22px;
+    color:#fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+  }
+  .nav-cta{
+    font-family:'DM Sans', sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    color:#fff;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+    border:1.5px solid rgba(255,255,255,0.75);
+    padding:9px 20px;
+    border-radius:999px;
+    text-decoration:none;
+    backdrop-filter:blur(2px);
+    transition:background .2s ease, color .2s ease;
+  }
+  .nav-cta:hover{ background:#fff; color:var(--ink); text-shadow:none;}
+  .nav-link{
+    font-family:'DM Sans', sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.03em;
+    color:#fff;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+    text-decoration:none;
+    opacity:0.88;
+    transition:opacity .2s ease;
+  }
+  .nav-link:hover{ opacity:1; text-decoration:underline; }
+  .nav-right{ display:flex; align-items:center; gap:22px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    background:linear-gradient(165deg, var(--ink) 0%, var(--slate) 55%, var(--slate-soft) 100%);
+    overflow:hidden;
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    width:100%;
+    padding:100px 32px 100px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  .hero-dogs{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:6px;
+    margin-bottom:10px;
+    position:relative;
+    z-index:2;
+  }
+  .hero-dogs img{
+    height:180px;
+    width:auto;
+    filter: drop-shadow(0 12px 24px rgba(0,0,0,0.28));
+  }
+  .hero h1{
+    font-size:clamp(64px, 13vw, 120px);
+    color:#fff;
+    line-height:0.95;
+    margin-bottom:6px;
+  }
+  .hero-eyebrow{
+    font-family:'DM Sans', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.2em;
+    font-size:12.5px;
+    font-weight:700;
+    color:#fff;
+    background:rgba(74,111,138,0.55);
+    border:1px solid rgba(255,255,255,0.4);
+    backdrop-filter:blur(3px);
+    padding:8px 20px;
+    border-radius:999px;
+    display:inline-block;
+    margin-bottom:20px;
+  }
+  .hero .tagline{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(19px, 2.6vw, 27px);
+    color:var(--sand-light);
+    background:rgba(196,168,130,0.14);
+    border:1px solid rgba(196,168,130,0.55);
+    backdrop-filter:blur(3px);
+    padding:8px 26px;
+    border-radius:999px;
+    display:inline-block;
+    margin-bottom:34px;
+  }
+
+  .waitlist-form{
+    display:flex;
+    gap:10px;
+    background:rgba(255,255,255,0.94);
+    padding:8px;
+    border-radius:999px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.25);
+    width:100%;
+    max-width:460px;
+  }
+  .waitlist-form input[type="email"]{
+    flex:1;
+    border:none;
+    background:transparent;
+    padding:12px 18px;
+    font-family:'DM Sans', sans-serif;
+    font-size:15px;
+    color:var(--charcoal);
+    outline:none;
+  }
+  .waitlist-form button{
+    border:none;
+    background:var(--sand);
+    color:var(--ink);
+    font-family:'DM Sans', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:0.03em;
+    padding:12px 26px;
+    border-radius:999px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:background .2s ease, transform .15s ease;
+  }
+  .waitlist-form button:hover{ background:#d9c19c; transform:translateY(-1px);}
+  .waitlist-form button:focus-visible, .waitlist-form input:focus-visible{
+    outline:3px solid var(--rose); outline-offset:2px;
+  }
+  .waitlist-note{
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    margin-top:14px;
+    opacity:0.85;
+    text-shadow:0 1px 6px rgba(0,0,0,0.3);
+  }
+  .form-success{
+    display:none;
+    color:#fff;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:20px;
+    margin-top:6px;
+  }
+
+  .scroll-cue{
+    position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+    z-index:2; color:#fff; font-size:11px; letter-spacing:0.2em;
+    text-transform:uppercase; opacity:0.75;
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+  }
+  .scroll-cue .line{width:1px; height:34px; background:rgba(255,255,255,0.6); animation:pulse 2.2s ease-in-out infinite;}
+  @keyframes pulse{ 0%,100%{opacity:0.3;} 50%{opacity:0.9;} }
+
+  /* ---------- MEET PHOTO ---------- */
+  .meet-photo{
+    background:var(--paper);
+    padding:70px 0 20px;
+    text-align:center;
+  }
+  .meet-photo-img{
+    width:100%;
+    max-width:900px;
+    border-radius:20px;
+    box-shadow:0 24px 60px rgba(45,63,84,0.18);
+    margin:0 auto;
+    display:block;
+  }
+  .meet-photo-caption{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color:var(--slate);
+    font-size:18px;
+    margin-top:22px;
+  }
+  .story-photo-img{
+    width:100%;
+    max-width:420px;
+    border-radius:18px;
+    box-shadow:0 18px 44px rgba(45,63,84,0.16);
+    display:block;
+    margin:0 auto;
+  }
+  .story-photo-caption{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color:var(--slate);
+    font-size:15px;
+    text-align:center;
+    margin-top:16px;
+  }
+  .story-photo-float{
+    float:right;
+    width:320px;
+    max-width:42%;
+    margin:4px 0 16px 32px;
+    border-radius:18px;
+    box-shadow:0 18px 44px rgba(45,63,84,0.16);
+  }
+  @media (max-width: 640px){
+    .story-photo-float{
+      float:none;
+      width:100%;
+      max-width:100%;
+      margin:0 0 24px;
+    }
+  }
+
+  /* ---------- STORY ---------- */
+  .story{
+    padding:120px 0 100px;
+    background:var(--paper);
+  }
+  .story-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:64px;
+    align-items:center;
+  }
+  .story-quote{
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(30px, 3.4vw, 42px);
+    line-height:1.25;
+    color:var(--ink);
+    font-weight:600;
+  }
+  .story-quote em{color:var(--slate); font-style:italic;}
+  .story-body p{
+    font-size:16.5px;
+    line-height:1.75;
+    color:var(--charcoal);
+    margin:0 0 18px;
+  }
+  .story-signoff{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color:var(--slate);
+    font-size:19px;
+    margin-top:10px;
+  }
+
+  /* ---------- AISLES (signature element: hanging placard signage) ---------- */
+  .aisles{
+    background:var(--ink);
+    padding:110px 0 130px;
+    position:relative;
+  }
+  .aisles-head{
+    text-align:center;
+    margin-bottom:70px;
+  }
+  .aisles-head .eyebrow{color:var(--sand);}
+  .aisles-head h2{
+    color:#fff;
+    font-size:clamp(34px, 5vw, 54px);
+    margin-top:10px;
+  }
+  .aisle-row, .concern-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:36px;
+  }
+  .concern-grid{
+    row-gap:56px;
+  }
+  .aisle-card, .concern-card{
+    position:relative;
+    padding-top:52px;
+  }
+  .aisle-marker{
+    position:absolute;
+    top:-26px; left:50%;
+    transform:translateX(-50%) rotate(-2deg);
+    width:88%;
+    background:linear-gradient(180deg, var(--sand-light) 0%, var(--sand) 100%);
+    color:var(--ink);
+    text-align:center;
+    padding:11px 14px 16px;
+    border-radius:6px 6px 2px 2px;
+    box-shadow:0 12px 26px rgba(0,0,0,0.3);
+    z-index:2;
+  }
+  .aisle-marker::after{
+    content:'';
+    position:absolute;
+    bottom:-9px; left:50%;
+    transform:translateX(-50%);
+    width:3px; height:9px;
+    background:var(--sand);
+  }
+  .aisle-num{
+    display:block;
+    font-family:'DM Sans', sans-serif;
+    font-weight:700;
+    font-size:10px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    opacity:0.65;
+    margin-bottom:3px;
+  }
+  .aisle-title{
+    display:block;
+    font-family:'Cormorant Garamond', serif;
+    font-weight:700;
+    font-size:21px;
+    line-height:1.15;
+  }
+  .aisle-card:nth-child(2) .aisle-marker, .concern-card:nth-child(2) .aisle-marker,
+  .concern-card:nth-child(5) .aisle-marker{ transform:translateX(-50%) rotate(1.5deg); }
+  .aisle-card:nth-child(3) .aisle-marker, .concern-card:nth-child(3) .aisle-marker,
+  .concern-card:nth-child(6) .aisle-marker{ transform:translateX(-50%) rotate(-1deg); }
+  .concern-card:nth-child(4) .aisle-marker{ transform:translateX(-50%) rotate(2deg); }
+  .concern-card:nth-child(7) .aisle-marker{ transform:translateX(-50%) rotate(-1.5deg); }
+  .concern-card:nth-child(8) .aisle-marker{ transform:translateX(-50%) rotate(1deg); }
+  .concern-card:nth-child(9) .aisle-marker{ transform:translateX(-50%) rotate(-1.8deg); }
+  .concern-card:nth-child(10) .aisle-marker{ transform:translateX(-50%) rotate(1.2deg); }
+
+  .aisle-panel{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.14);
+    border-top:none;
+    border-radius:2px 2px 16px 16px;
+    padding:46px 26px 30px;
+    height:100%;
+    text-align:center;
+    position:relative;
+    transition:transform .25s ease, background .25s ease;
+  }
+  .aisle-panel:hover{ transform:translateY(-6px); background:rgba(255,255,255,0.07); }
+  .aisle-panel::before{
+    content:'';
+    position:absolute;
+    bottom:16px; left:22px; right:22px;
+    height:1px;
+    background:repeating-linear-gradient(90deg, rgba(196,168,130,0.45) 0 6px, transparent 6px 13px);
+  }
+  .aisle-panel p{
+    color:rgba(255,255,255,0.72);
+    font-size:14.5px;
+    line-height:1.65;
+    margin:0 0 18px;
+  }
+  .aisle-tag{
+    display:inline-block;
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--sand);
+    border-top:1px solid rgba(255,255,255,0.18);
+    padding-top:14px;
+    margin-top:6px;
+    width:100%;
+  }
+
+  /* ---------- EDITORIAL: ASK MAUD + EDNA'S BEST OF ---------- */
+  .editorial{
+    padding:110px 0;
+    background:var(--paper);
+  }
+  .editorial-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:stretch;
+  }
+  .ed-card{
+    border-radius:22px;
+    padding:44px 40px;
+    display:flex;
+    flex-direction:column;
+  }
+  .ed-card h3{ font-size:34px; margin:6px 0 2px; }
+  .ed-sub{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color:var(--slate);
+    font-size:17px;
+    margin:0 0 26px;
+  }
+
+  .ask-maud{
+    background:#fff;
+    border:1px solid rgba(74,111,138,0.14);
+    box-shadow:0 24px 60px rgba(45,63,84,0.08);
+  }
+  .letter{
+    background:var(--paper-warm);
+    border:1px solid rgba(196,168,130,0.4);
+    border-radius:14px;
+    padding:28px 26px;
+    margin-bottom:24px;
+    position:relative;
+  }
+  .letter::before{
+    content:"\201C";
+    position:absolute; top:6px; left:16px;
+    font-family:'Cormorant Garamond', serif;
+    font-size:64px;
+    color:rgba(74,111,138,0.16);
+    line-height:1;
+  }
+  .letter .q{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:19px;
+    color:var(--charcoal);
+    margin:0 0 14px;
+    position:relative;
+    z-index:1;
+  }
+  .letter .a{
+    font-size:15.5px;
+    line-height:1.7;
+    color:var(--ink);
+    margin:0 0 10px;
+  }
+  .letter .sign{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color:var(--slate);
+    font-size:16px;
+    margin:0;
+    text-align:right;
+  }
+  .ed-link{
+    font-size:14px;
+    font-weight:700;
+    color:var(--slate);
+    text-decoration:none;
+    letter-spacing:0.02em;
+    margin-top:auto;
+  }
+  .ed-link:hover{ text-decoration:underline; }
+
+  .edna-best{
+    background:var(--ink);
+  }
+  .cat-tag{
+    display:block;
+    width:fit-content;
+    font-family:'DM Sans', sans-serif;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:3px 10px;
+    border-radius:999px;
+    margin-bottom:8px;
+  }
+  .ask-maud .cat-tag{ background:rgba(74,111,138,0.1); color:var(--slate); }
+  .edna-best .cat-tag{ background:rgba(196,168,130,0.16); color:var(--sand); }
+  .qa-entry{
+    background:var(--paper-warm);
+    border:1px solid rgba(196,168,130,0.4);
+    border-radius:14px;
+    padding:20px 22px;
+    margin-bottom:16px;
+  }
+  .qa-entry .q{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:16px;
+    color:var(--charcoal);
+    margin:0 0 8px;
+  }
+  .qa-entry .a{
+    font-size:14px;
+    line-height:1.6;
+    color:var(--ink);
+    margin:0;
+  }
+  .edna-best h3{ color:#fff; }
+  .edna-best .ed-sub{ color:var(--sand-light); }
+  .best-list{
+    list-style:none;
+    margin:0 0 20px;
+    padding:0;
+    flex:1;
+  }
+  .best-list li{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid rgba(255,255,255,0.14);
+  }
+  .best-list li:first-child{ padding-top:0; }
+  .best-name{
+    color:rgba(255,255,255,0.88);
+    font-size:15px;
+    line-height:1.4;
+  }
+  .best-link{
+    color:var(--sand);
+    font-size:13.5px;
+    font-weight:700;
+    text-decoration:none;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .best-link:hover{ text-decoration:underline; }
+  .ed-note{
+    font-size:12.5px;
+    color:rgba(255,255,255,0.5);
+    font-style:italic;
+    font-family:'Cormorant Garamond', serif;
+    margin-top:auto;
+  }
+
+  /* ---------- DELIVERY ---------- */
+  .delivery{
+    padding:110px 0;
+    background:var(--paper-warm);
+  }
+  .delivery-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:center;
+  }
+  .delivery h2{ font-size:clamp(32px,4vw,46px); margin-bottom:20px;}
+  .delivery p{ font-size:16.5px; line-height:1.75; color:var(--charcoal); margin:0 0 16px;}
+  .delivery-card{
+    background:#fff;
+    border-radius:20px;
+    padding:38px;
+    box-shadow:0 24px 60px rgba(45,63,84,0.10);
+    border:1px solid rgba(74,111,138,0.12);
+  }
+  .delivery-card .eyebrow{margin-bottom:10px; display:block;}
+  .delivery-card h3{ font-size:24px; margin-bottom:14px;}
+  .delivery-list{list-style:none; margin:0; padding:0;}
+  .delivery-list li{
+    display:flex; gap:12px; align-items:flex-start;
+    font-size:14.5px; color:var(--charcoal);
+    padding:10px 0;
+    border-bottom:1px solid rgba(45,63,84,0.08);
+  }
+  .delivery-list li:last-child{border-bottom:none;}
+  .delivery-list .dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--rose); margin-top:7px; flex-shrink:0;
+  }
+
+  /* ---------- SIDE NAV ---------- */
+  .side-nav{
+    position:fixed;
+    left:22px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:200;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .side-nav button, .side-nav a{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    background:rgba(45,63,84,0.88);
+    backdrop-filter:blur(4px);
+    border:none;
+    border-radius:999px;
+    padding:9px 16px 9px 12px;
+    cursor:pointer;
+    text-decoration:none;
+    font-family:'DM Sans', sans-serif;
+    font-size:12px;
+    font-weight:700;
+    color:#F3ECE0;
+    letter-spacing:0.01em;
+    box-shadow:0 6px 18px rgba(45,63,84,0.25);
+    transition:background .2s ease;
+    white-space:nowrap;
+  }
+  .side-nav button:hover, .side-nav a:hover{ background:rgba(74,111,138,0.95); }
+  .side-nav .paw{ flex-shrink:0; }
+  .concern-picker{
+    display:none;
+    position:absolute;
+    left:100%;
+    top:0;
+    margin-left:14px;
+    background:#fff;
+    border-radius:16px;
+    padding:14px;
+    box-shadow:0 18px 44px rgba(45,63,84,0.22);
+    width:220px;
+  }
+  .concern-picker.open{ display:block; }
+  .concern-picker-label{
+    font-family:'DM Sans', sans-serif;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:#8A9BA6;
+    padding:2px 8px 8px;
+  }
+  .concern-picker a{
+    display:block;
+    background:none;
+    box-shadow:none;
+    color:var(--ink);
+    font-size:13px;
+    font-weight:600;
+    padding:8px 8px;
+    border-radius:8px;
+  }
+  .concern-picker a:hover{ background:var(--paper-warm); }
+  @media (max-width: 980px){
+    .side-nav{ display:none; }
+  }
+
+  .waitlist-band{
+    background:var(--slate);
+    padding:90px 0;
+    text-align:center;
+  }
+  .waitlist-band h2{
+    color:#fff;
+    font-size:clamp(32px,5vw,50px);
+    margin-bottom:14px;
+  }
+  .waitlist-band p{
+    color:rgba(255,255,255,0.85);
+    font-size:16px;
+    margin:0 auto 34px;
+    max-width:460px;
+  }
+  .waitlist-band .waitlist-form{
+    margin:0 auto;
+  }
+  .waitlist-band .waitlist-note{ color:rgba(255,255,255,0.75); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    position:relative;
+    background:var(--ink);
+    color:rgba(255,255,255,0.65);
+    padding:50px 0 34px;
+    overflow:hidden;
+  }
+  footer::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:url('IMG_4507.jpg');
+    background-size:cover;
+    background-position:center 30%;
+    opacity:0.55;
+  }
+  footer .wrap{ position:relative; z-index:1; }
+  .footer-top{
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:20px;
+    padding-bottom:28px;
+    border-bottom:1px solid rgba(255,255,255,0.14);
+    margin-bottom:24px;
+  }
+  .footer-mark{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:22px;
+    color:#fff;
+  }
+  .footer-social{
+    display:flex; gap:18px;
+    font-size:13px;
+    letter-spacing:0.05em;
+  }
+  .footer-social a{text-decoration:none; opacity:0.8; transition:opacity .2s;}
+  .footer-social a:hover{opacity:1;}
+  .footer-fine{
+    font-size:11.5px;
+    line-height:1.7;
+    color:rgba(255,255,255,0.42);
+    max-width:760px;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 880px){
+    .story-grid, .delivery-grid, .editorial-grid{ grid-template-columns:1fr; gap:40px;}
+    .aisle-row{ grid-template-columns:1fr; gap:56px;}
+    .concern-grid{ grid-template-columns:1fr 1fr; gap:16px 24px; }
+    .hero-dogs img{height:110px;}
+    .waitlist-form{flex-direction:column; border-radius:22px; padding:14px;}
+    .waitlist-form input[type="email"]{padding:10px 8px;}
+    .waitlist-form button{width:100%; padding:13px;}
+    .ed-card{padding:34px 26px;}
+  }
+  @media (max-width: 560px){
+    .concern-grid{ grid-template-columns:1fr; gap:44px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="side-nav">
+  <a href="#shop-by-concern"><svg class="paw" viewBox="0 0 24 24" width="14" height="14" fill="#fff"><path d="M8.5 9.5c1.1 0 2-1.1 2-2.5S9.6 4.5 8.5 4.5 6.5 5.6 6.5 7s.9 2.5 2 2.5zm7 0c1.1 0 2-1.1 2-2.5S16.6 4.5 15.5 4.5 13.5 5.6 13.5 7s.9 2.5 2 2.5zM4.5 14c1.1 0 2-1.1 2-2.5S5.6 9 4.5 9 2.5 10.1 2.5 11.5 3.4 14 4.5 14zm15 0c1.1 0 2-1.1 2-2.5S20.6 9 19.5 9 17.5 10.1 17.5 11.5 18.4 14 19.5 14zM12 12.5c-2.8 0-6 2.3-6 5.2 0 1.5 1.2 2.3 2.7 2.3 1 0 1.9-.5 3.3-.5s2.3.5 3.3.5c1.5 0 2.7-.8 2.7-2.3 0-2.9-3.2-5.2-6-5.2z"/></svg>Shop by Concern</a>
+  <a href="#meet-the-app"><svg class="paw" viewBox="0 0 24 24" width="14" height="14" fill="#fff"><path d="M8.5 9.5c1.1 0 2-1.1 2-2.5S9.6 4.5 8.5 4.5 6.5 5.6 6.5 7s.9 2.5 2 2.5zm7 0c1.1 0 2-1.1 2-2.5S16.6 4.5 15.5 4.5 13.5 5.6 13.5 7s.9 2.5 2 2.5zM4.5 14c1.1 0 2-1.1 2-2.5S5.6 9 4.5 9 2.5 10.1 2.5 11.5 3.4 14 4.5 14zm15 0c1.1 0 2-1.1 2-2.5S20.6 9 19.5 9 17.5 10.1 17.5 11.5 18.4 14 19.5 14zM12 12.5c-2.8 0-6 2.3-6 5.2 0 1.5 1.2 2.3 2.7 2.3 1 0 1.9-.5 3.3-.5s2.3.5 3.3.5c1.5 0 2.7-.8 2.7-2.3 0-2.9-3.2-5.2-6-5.2z"/></svg>Meet the App</a>
+  <div style="position:relative;">
+    <button type="button" onclick="document.getElementById('sideConcernPicker').classList.toggle('open')">
+      <svg class="paw" viewBox="0 0 24 24" width="14" height="14" fill="#fff"><path d="M8.5 9.5c1.1 0 2-1.1 2-2.5S9.6 4.5 8.5 4.5 6.5 5.6 6.5 7s.9 2.5 2 2.5zm7 0c1.1 0 2-1.1 2-2.5S16.6 4.5 15.5 4.5 13.5 5.6 13.5 7s.9 2.5 2 2.5zM4.5 14c1.1 0 2-1.1 2-2.5S5.6 9 4.5 9 2.5 10.1 2.5 11.5 3.4 14 4.5 14zm15 0c1.1 0 2-1.1 2-2.5S20.6 9 19.5 9 17.5 10.1 17.5 11.5 18.4 14 19.5 14zM12 12.5c-2.8 0-6 2.3-6 5.2 0 1.5 1.2 2.3 2.7 2.3 1 0 1.9-.5 3.3-.5s2.3.5 3.3.5c1.5 0 2.7-.8 2.7-2.3 0-2.9-3.2-5.2-6-5.2z"/></svg>Ask Maud &amp; Edna's Picks
+    </button>
+    <div class="concern-picker" id="sideConcernPicker">
+      <div class="concern-picker-label">Pick your aisle</div>
+      <a href="hot-flashes-sleep.html">Hot Flashes &amp; Sleep</a>
+      <a href="mood-energy.html">Mood &amp; Energy</a>
+      <a href="glp1-support.html">GLP-1 Support</a>
+      <a href="gut-health.html">Gut Health</a>
+      <a href="hair-thinning.html">Hair Thinning</a>
+      <a href="libido-intimacy.html">Libido &amp; Intimacy</a>
+      <a href="muscular-joint-pain.html">Muscular &amp; Joint Pain</a>
+      <a href="brain-fog.html">Brain Fog</a>
+      <a href="longevity-mobility.html">Longevity &amp; Mobility</a>
+    </div>
+  </div>
+  <a href="#discreet-delivery"><svg class="paw" viewBox="0 0 24 24" width="14" height="14" fill="#fff"><path d="M8.5 9.5c1.1 0 2-1.1 2-2.5S9.6 4.5 8.5 4.5 6.5 5.6 6.5 7s.9 2.5 2 2.5zm7 0c1.1 0 2-1.1 2-2.5S16.6 4.5 15.5 4.5 13.5 5.6 13.5 7s.9 2.5 2 2.5zM4.5 14c1.1 0 2-1.1 2-2.5S5.6 9 4.5 9 2.5 10.1 2.5 11.5 3.4 14 4.5 14zm15 0c1.1 0 2-1.1 2-2.5S20.6 9 19.5 9 17.5 10.1 17.5 11.5 18.4 14 19.5 14zM12 12.5c-2.8 0-6 2.3-6 5.2 0 1.5 1.2 2.3 2.7 2.3 1 0 1.9-.5 3.3-.5s2.3.5 3.3.5c1.5 0 2.7-.8 2.7-2.3 0-2.9-3.2-5.2-6-5.2z"/></svg>Discreet Delivery</a>
+  <a href="#our-story"><svg class="paw" viewBox="0 0 24 24" width="14" height="14" fill="#fff"><path d="M8.5 9.5c1.1 0 2-1.1 2-2.5S9.6 4.5 8.5 4.5 6.5 5.6 6.5 7s.9 2.5 2 2.5zm7 0c1.1 0 2-1.1 2-2.5S16.6 4.5 15.5 4.5 13.5 5.6 13.5 7s.9 2.5 2 2.5zM4.5 14c1.1 0 2-1.1 2-2.5S5.6 9 4.5 9 2.5 10.1 2.5 11.5 3.4 14 4.5 14zm15 0c1.1 0 2-1.1 2-2.5S20.6 9 19.5 9 17.5 10.1 17.5 11.5 18.4 14 19.5 14zM12 12.5c-2.8 0-6 2.3-6 5.2 0 1.5 1.2 2.3 2.7 2.3 1 0 1.9-.5 3.3-.5s2.3.5 3.3.5c1.5 0 2.7-.8 2.7-2.3 0-2.9-3.2-5.2-6-5.2z"/></svg>Our Story</a>
+</div>
+
+<nav class="nav">
+  <div class="nav-mark">Edna &amp; Maud's</div>
+  <div class="nav-right">
+    <a href="app-coming-soon.html" class="nav-link">Try the app</a>
+    <a href="#waitlist" class="nav-cta">Join the list</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-dogs">
+      <img src="edna.png" alt="Edna, illustrated with glasses" loading="eager">
+      <img src="maud.png" alt="Maud, illustrated with glasses" loading="eager">
+    </div>
+    <h1>Edna &amp; Maud's</h1>
+    <p style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:22px; color:var(--sand-light); margin:0 0 34px; max-width:520px; margin-left:auto; margin-right:auto;">
+      Your one-stop shop for the midlife stuff nobody talks about.
+    </p>
+
+    <form class="waitlist-form" id="waitlistForm" action="#" method="POST">
+      <label for="email" class="visually-hidden" style="position:absolute; left:-9999px;">Email address</label>
+      <input type="email" id="email" name="email" placeholder="you@email.com" required>
+      <button type="submit">Join the list</button>
+    </form>
+    <div class="form-success" id="formSuccess">You're on the list. We'll be in touch. 💌</div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<!-- AISLES -->
+<section class="aisles" id="shop-by-concern">
+  <div class="wrap">
+    <div class="aisles-head">
+      <div class="eyebrow">Shop by concern</div>
+      <h2>Whatever it is,<br>there's an aisle for it.</h2>
+      <p style="max-width:560px; margin:22px auto 0; color:rgba(255,255,255,0.68); font-size:15px; line-height:1.7;">
+        Gummies, tools, and everyday relief, all in one place — so you're not piecing together five different brands for five different things nobody warned you about.
+      </p>
+    </div>
+    <div class="concern-grid">
+      <a href="hot-flashes-sleep.html" class="concern-card" id="hot-flashes-sleep" style="display:block; text-decoration:none; color:inherit;">
+        <div class="aisle-marker">
+          <span class="aisle-num">Aisle One</span>
+          <span class="aisle-title">Hot Flashes &amp; Sleep</span>
+        </div>
+        <div class="aisle-panel">
+          <p>For the nights the thermostat becomes a personal enemy.</p>
+          <span class="aisle-tag">Explore &rarr;</span>
+        </div>
+      </a>
+      <a href="mood-energy.html" class="concern-card" id="mood-energy" style="display:block; text-decoration:none; color:inherit;">
+        <div class="aisle-marker">
+          <span class="aisle-num">Aisle Two</span>
+          <span class="aisle-title">Mood &amp; Energy</span>
+        </div>
+        <div class="aisle-panel">
+          <p>For the days you'd like to feel like yourself again.</p>
+          <span class="aisle-tag">Explore &rarr;</span>
+        </div>
+      </a>
+      <a href="glp1-support.html" class="concern-card" id="glp1-support" style="display:block; text-decoration:none; color:inherit;">
+        <div class="aisle-marker">
+          <span class="aisle-num">Aisle Three</span>
+          <span class="aisle-title">GLP-1 Support</span>
+        </div>
+        <div class="aisle-panel">
+          <p>For the side of the journey nobody mentions at the pharmacy counter.</p>
+          <span class="aisle-tag">Explore &rarr;</span>
+        </div>
+      </a>
+      <a href="gut-health.html" class="concern-card" id="gut-health" style="display:block; text-decoration:none; color:inherit;">
+        <div class="aisle-marker">
+          <span class="aisle-num">Aisle Four</span>
+          <span class="aisle-title">Gut Health</span>
+        </div>
+        <div class="aisle-panel">
+          <p>For when things move too fast, too slow, or not at all.</p>
+          <span class="aisle-tag">Explore &rarr;</span>
+        </div>
+      </a>
+      <a href="hair-thinning.html" class="concern-card" id="hair-thinning" style="display:block; text-decoration:none; color:inherit;">
+        <div class="aisle-marker">
+          <span class="aisle-num">Aisle Five</span>
+          <span class="aisle-title">Hair Thinning</span>
+        </div>
+        <div class="aisle-panel">
+          <p>For the hairline that's been quietly negotiating without you.</p>
+          <span class="aisle-tag">Explore &rarr;</span>
+        </div>
+      </a>
+      <a href="libido-intimacy.html" class="concern-card" id="libido-intimacy" style="display:block; text-decoration:none; color:inherit;">
+        <div class="aisle-marker">
+          <span class="aisle-num">Aisle Six</span>
+          <span class="aisle-title">Libido &amp; Intimacy</span>
+        </div>
+        <div class="aisle-panel">
+          <p>For the topic that gets a nervous laugh everywhere else. Not here.</p>
+          <span class="aisle-tag">Explore &rarr;</span>
+        </div>
+      </a>
+      <a href="muscular-joint-pain.html" class="concern-card" id="muscular-joint-pain" style="display:block; text-decoration:none; color:inherit;">
+        <div class="aisle-marker">
+          <span class="aisle-num">Aisle Seven</span>
+          <span class="aisle-title">Muscular &amp; Joint Pain</span>
+        </div>
+        <div class="aisle-panel">
+          <p>For the ache that wasn't there last year, and the good cream that argues back.</p>
+          <span class="aisle-tag">Explore &rarr;</span>
+        </div>
+      </a>
+      <a href="brain-fog.html" class="concern-card" id="brain-fog" style="display:block; text-decoration:none; color:inherit;">
+        <div class="aisle-marker">
+          <span class="aisle-num">Aisle Eight</span>
+          <span class="aisle-title">Brain Fog</span>
+        </div>
+        <div class="aisle-panel">
+          <p>For the word that was right there a second ago. Lion's mane included, no judgment.</p>
+          <span class="aisle-tag">Explore &rarr;</span>
+        </div>
+      </a>
+      <a href="product-coming-soon.html" class="concern-card" id="own-line" style="display:block; text-decoration:none; color:inherit; background-image:linear-gradient(rgba(45,63,84,0.75), rgba(45,63,84,0.75)), url('edna-gummy-lab.jpg'); background-size:cover; background-position:center;">
+        <div class="aisle-marker">
+          <span class="aisle-num">Aisle Nine</span>
+          <span class="aisle-title">Edna &amp; Maud's Own Line</span>
+        </div>
+        <div class="aisle-panel">
+          <p>Our own recipe, still cooking. Edna's in the lab and she's not sharing details yet.</p>
+          <span class="aisle-tag">Coming Soon</span>
+        </div>
+      </a>
+      <a href="longevity-mobility.html" class="concern-card" id="longevity-mobility" style="display:block; text-decoration:none; color:inherit;">
+        <div class="aisle-marker">
+          <span class="aisle-num">Aisle Ten</span>
+          <span class="aisle-title">Longevity &amp; Mobility</span>
+        </div>
+        <div class="aisle-panel">
+          <p>For the decades you fully intend to be difficult in. Dead hangs, grip strength, and the sitting-rising test.</p>
+          <span class="aisle-tag">Explore &rarr;</span>
+        </div>
+      </a>
+    </div>
+    <p style="text-align:center; margin-top:48px; font-family:'DM Sans', sans-serif; font-size:14px; color:rgba(255,255,255,0.6);">
+      Didn't find your aisle? <a href="mailto:em@ednaandmaud.com?subject=Aisle%20idea" style="color:#F3ECE0; font-weight:700; text-decoration:underline;">Tell us what's missing &rarr;</a>
+    </p>
+  </div>
+</section>
+
+<!-- MEET THE APP — cross-sell -->
+<section class="meet-the-app" id="meet-the-app" style="background: linear-gradient(135deg, #4A6F8A, #5D8199); padding: 72px 24px; text-align: center;">
+  <div style="max-width: 640px; margin: 0 auto;">
+    <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 24px;">
+      <img src="edna.png" alt="Edna" style="width: 72px; height: 72px; border-radius: 50%; border: 3px solid #F3ECE0; object-fit: cover;">
+      <img src="maud.png" alt="Maud" style="width: 72px; height: 72px; border-radius: 50%; border: 3px solid #F3ECE0; object-fit: cover;">
+    </div>
+    <div style="font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #D9C4A0; margin-bottom: 14px;">
+      Not the shop &mdash; the daily companion
+    </div>
+    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 700; color: #F3ECE0; margin-bottom: 12px;">
+      The aisles are for what you buy once. This is for every day in between &mdash; and the decades after.
+    </h2>
+    <p style="font-family: 'DM Sans', sans-serif; font-size: 17px; color: #D9C4A0; line-height: 1.6; margin-bottom: 8px;">
+      Edna nags you through the dead hangs and grip strength checks. Maud reads the actual longevity
+      research. Together they check in daily — hot flashes, stress, mobility, GLP-1 symptoms, the
+      sitting-rising test nobody wants to do — and tell you when it's actually time to worry versus
+      time to laugh it off.
+    </p>
+    <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: #C9BBA0; margin-bottom: 32px;">
+      7 days free. Card required, first charge only if you don't cancel.
+    </p>
+    <a href="app-coming-soon.html" style="display: inline-block; background: #F3ECE0; color: #2C3E4A; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 40px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 14px rgba(0,0,0,0.15);">
+      Meet Edna &amp; Maud's App
+    </a>
+  </div>
+</section>
+
+<!-- EDITORIAL: ASK MAUD + EDNA'S BEST OF -->
+<section class="editorial" id="ask-maud-picks">
+  <div class="wrap editorial-grid">
+
+    <div class="ed-card ask-maud">
+      <span class="eyebrow" style="color:var(--rose);">A column</span>
+      <h3>Ask Maud</h3>
+      <p class="ed-sub">Real talk, delivered proper.</p>
+      <div class="letter">
+        <p class="q">"Maud, is it normal to cry at a dog food commercial?"</p>
+        <p class="a">Darling, if you haven't cried at one this month, we need to run some tests.</p>
+        <p class="sign">&mdash; Maud</p>
+      </div>
+      <p class="ed-note" style="margin-top:12px;">The full column lives on each aisle &mdash; scroll down and pick yours.</p>
+    </div>
+
+    <div class="ed-card edna-best">
+      <span class="eyebrow" style="color:var(--sand);">A list</span>
+      <h3>Edna's Best Of</h3>
+      <p class="ed-sub">Things worth your money that aren't ours.</p>
+      <ul class="best-list">
+        <li>
+          <span class="best-name">The detangling brush I actually use for thinning hair</span>
+          <a href="hair-thinning.html" class="best-link">See it &rarr;</a>
+        </li>
+      </ul>
+      <div class="ed-note">Full picks, by category, live on each aisle. Edna just has opinions everywhere.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<section class="delivery" id="discreet-delivery">
+  <div class="wrap delivery-grid">
+    <div>
+      <div class="eyebrow">The porch report &mdash; once we're shipping</div>
+      <h2>Discreet delivery.<br>Indiscreet honesty.</h2>
+      <p>Everything will ship in packaging that keeps your business your business. If you're local, we'll even bring it to your door ourselves — appointment only, whenever it works for you.</p>
+      <p>Your neighbor thinks it's a candle. It is not a candle.</p>
+    </div>
+    <div class="delivery-card">
+      <span class="eyebrow">How it works today</span>
+      <h3>Consumer Reports, but for the stuff nobody talks about</h3>
+      <ul class="delivery-list">
+        <li><span class="dot"></span> Edna tests, compares, and has strong opinions — read them free, anytime</li>
+        <li><span class="dot"></span> Ask Maud anything, get real talk back</li>
+        <li><span class="dot"></span> The app tracks the daily stuff — 7-day free trial, cancel before you're charged</li>
+        <li><span class="dot"></span> Our own products ship later. For now? Just good advice and better recommendations than a 2am Google spiral</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="our-story">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center; margin-bottom:16px;">Our Story</div>
+    <div class="story-quote" style="text-align:center; max-width:760px; margin:0 auto 40px;">
+      One says it straight. <em>One says it proper.</em> Neither one holds back.
+    </div>
+    <div class="story-body" style="max-width:820px; margin:0 auto;">
+      <img src="beach-chairs.jpeg" alt="Edna and Maud sitting in beach chairs, dishing under a canopy at sunset" class="story-photo-float">
+      <p>Although Edna and Maud are both dogs as mascots for the company, they're loosely based on — and a tribute to — the real-life grandmothers of the founder. Both were doctor's wives. Both had zero chill about anything, and neither one ever noticed.</p>
+      <p>Edna was a nurse without a filter — she'd interpret your lab results, tell you your outfit was too tight, and describe what an orgasm or a hot flash actually feels like, all at the same Sunday dinner table before the rolls came out. Maud was old-school proper — pearls, a fixture on every guild and committee in town — the kind of lady who could say something absolutely filthy in the same breath as offering you more sweet tea, and you'd thank her for both.</p>
+      <p>Ask either of them about "female aging troubles" at your own risk. You will learn things. Things you cannot unlearn. Things you will eventually bring up in therapy. They said it anyway, because someone had to, and because watching a table full of relatives choke on their tea or cocktail in shock was, frankly, half the fun.</p>
+      <p style="clear:both;">They spent their whole lives being told "it's nothing" by men who'd never once had a hot flash in a business meeting. It was never nothing. Their granddaughter got tired of the scavenger hunt eventually — the gummies over here, the good scalp brush buried in a five-year-old Reddit thread over there, dead silence on what a GLP-1 actually does to your hair, your gut, and your entire personality — and built the one-stop version. Same bluntness. Better manners than the internet. Barely.</p>
+      <div class="story-signoff">Edna and Maud never whispered. So neither do we.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WAITLIST BAND -->
+<section class="waitlist-band" id="waitlist">
+  <div class="wrap">
+    <h2>Be the first to know</h2>
+    <p>We're still adding aisles and sharpening opinions. Join the list and you'll hear the second the site goes live — plus the occasional joke only Edna and Maud could get away with.</p>
+    <form class="waitlist-form" id="waitlistForm2" action="#" method="POST">
+      <label for="email2" style="position:absolute; left:-9999px;">Email address</label>
+      <input type="email" id="email2" name="email" placeholder="you@email.com" required>
+      <button type="submit">Join the list</button>
+    </form>
+    <div class="form-success" id="formSuccess2">You're on the list. We'll be in touch. 💌</div>
+    <div class="waitlist-note">Unsubscribe anytime.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-mark">Edna &amp; Maud's</div>
+      <div class="footer-social">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="app-coming-soon.html">App</a>
+      </div>
+    </div>
+    <p class="footer-fine">
+      Edna &amp; Maud's, LLC. These statements have not been evaluated by the Food and Drug Administration.
+      Our products are not intended to diagnose, treat, cure, or prevent any disease. Nothing on this site,
+      including "Ask Maud," is medical, mental health, or legal advice — Edna and Maud are not doctors, nurses,
+      therapists, counselors, or attorneys, and none of this content comes from a licensed professional of any
+      kind. It's for general wellness and entertainment purposes only. Always talk to your own doctor, therapist,
+      or lawyer for guidance specific to you, especially before starting any new supplement — particularly if
+      you're pregnant, nursing, or taking other medication. Individual results vary. Coming soon — thank you for
+      being here early.
+    </p>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(form, successEl){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const input = form.querySelector('input[type="email"]');
+      if(!input.value) return;
+      form.style.display = 'none';
+      successEl.style.display = 'block';
+      // Placeholder only — wire this form's action up to Formspree (or similar)
+      // once ready to go live, same pattern used on leighhr.com.
+    });
+  }
+  handleSubmit(document.getElementById('waitlistForm'), document.getElementById('formSuccess'));
+  handleSubmit(document.getElementById('waitlistForm2'), document.getElementById('formSuccess2'));
+
+  document.addEventListener('click', function(e){
+    const picker = document.getElementById('sideConcernPicker');
+    if(!picker) return;
+    const trigger = e.target.closest('button');
+    const insidePicker = e.target.closest('#sideConcernPicker');
+    if(!insidePicker && !(trigger && trigger.getAttribute('onclick'))){
+      picker.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
